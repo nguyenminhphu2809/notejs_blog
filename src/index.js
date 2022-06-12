@@ -26,14 +26,13 @@ app.engine(
         extname: '.hbs',
     }),
 );
-app.set(
+                  app.set(
     'view engine',
-
     'hbs',
 );
 app.set('views', path.join(__dirname, 'resources/views'));
 
-console.log(__dirname);
+console.log(            __dirname);
 
 //Route init
 route(app);
