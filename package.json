@@ -26,9 +26,6 @@
     "url": "https://github.com/nguyenminhphu2809/notejs_blog/issues"
   },
   "homepage": "https://github.com/nguyenminhphu2809/notejs_blog#readme",
-  "lint-staged": {
-    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
-  },
   "dependencies": {
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
