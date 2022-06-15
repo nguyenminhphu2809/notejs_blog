@@ -5,12 +5,12 @@ class Courseontroller {
     //[GET] /me/stored/courses
     storedCourses(req, res, next) {
         Course.find({})
-            .then((courses) => {
+            .then(courses =>  {
                 res.render('me/stored-courses', {
-                    courses: mutipleMongooseToObject(courses),
+                courses: mutipleMongooseToObject(courses),
                 });
             })
-            .catch(next);
+            .catch(next);          
     }
 }
 
