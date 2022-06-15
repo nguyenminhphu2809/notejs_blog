@@ -21,10 +21,29 @@ class Courseontroller {
     //[POST] /courses/store
     store(req, res, next) {
         const formData = req.body;
-        formData.image = `https://i.ytimg.com/vi/${req.body.videoId}/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCnKLvUrsBZW203awokL4gnj1qjLQ`
+        formData.image = `https://i.ytimg.com/vi/${req.body.videoId}/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCnKLvUrsBZW203awokL4gnj1qjLQ`;
         const course = new Course(formData);
-        course.save()
+        course
+            .save()
             .then(() => res.redirect('/'))
+            .catch(next);
+    }
+
+    //[GET] /courses/:id/edit
+    edit(req, res, next) {
+        Course.findById(req.params.id)
+            .then((course) =>
+                res.render('courses/edit', {
+                    course: mongooseToObject(course),
+                }),
+            )
+            .catch(next);
+    }
+
+    //[PUT] /courses/:id
+    update(req, res, next) {
+        Course.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/me/stored/courses'))
             .catch(next);
     }
 }
