@@ -1,28 +1,25 @@
 <div class="mt-4">
     <h3>Add user</h3>
-    <form method="post" action="/user/add_user">
+    <form action="/user/add_user" id="form" method="post">
         <div class="mb-3">
-            <label for="username" class="form-label">User Name</label>
-            <input type="text" class="form-control" id="username" name="username">
+            <label for="username" class="form-label">User Name</label>        
+            <input type="text" class="form-control" id="username" name="username" required>
+            <div id="error_username">{{this.error}}</div>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control" id="password" name="password">
-        </div>
-        <div class="mb-3">
-            <label for="re-password" class="form-label">re-enter password</label>
-            <input type="text" class="form-control" id="re-password" name="re-password">
-        </div>
+        
         <div class="form-group">
             <label for="exampleFormControlSelect1">Role</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="role">
+            <select class="form-control" id="exampleFormControlSelect1" name="id_role">
                 {{#each roles}}
-                    <option value="{{this._id}}">{{this.role}}</option>
-                {{/each}}
+                    <option value="{{this.id_role}}">{{this.role_name}}</option>
+                {{/each}}   
             </select>
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3" >Add User</button>
+            <button type="button" class="btn btn-primary mb-3" action="check" >Add User</button>
         </div>
     </form>
 </div>
+<script>
+    
+</script>
