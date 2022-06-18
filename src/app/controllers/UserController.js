@@ -25,7 +25,16 @@ class Usercontroller {
 
     //[POST] /user/add_user
     add_user(req, res, next) {
-        res.json(req.body);
+        const formData = req.body;
+        var username = formData.username;
+        formData.password = username.trim().slice(3,10);
+
+        const user = new User(formData);
+        user.save()
+            .then(() => {
+                res.redirect('/user/')
+            })
+            .catch(next);
     }
 
 }
