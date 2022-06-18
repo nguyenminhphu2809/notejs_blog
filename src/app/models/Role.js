@@ -7,11 +7,11 @@ mongoose.plugin(slug);
 
 const Role = new NewSchema(
     {
-        id: { type: Number },
-        role: { type: 'string', maxlength: 255 },
+        id_role: { type: Number },
+        role_name: { type: 'string', maxlength: 255 },
     },
 );
 
-Role.plugin(AutoIncrement, {inc_field: 'id'});
+Role.plugin(AutoIncrement, {inc_field: 'id_role'});
 
 module.exports = mongoose.model('Role', Role);

@@ -16,7 +16,7 @@ class Rolecontroller {
         // });
         const role = new Role(req.body);
         role.save()
-            .then(() => res.redirect('/create'))
+            .then(() => res.redirect('/roles/create'))
             .catch(next);
     }
 

@@ -8,17 +8,17 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">User Name</th>
-                <th scope="col">Password</th>
                 <th scope="col">Role</th>
             </tr>
         </thead>
         <tbody> 
+            {{#each users}}
                 <tr>
-                    <th scope="row">1</th>
-                    <td><a href="/">197pm33529</td>
-                    <td>33529</td>
-                    <td>Sinh vien</td>
+                    <th scope="row">{{sum @index 1}}</th>
+                    <td><a href="/">{{this.username}}</td>
+                    <td>{{this.id_role}}</td>
                 </tr>
+            {{/each}}
         </tbody>
     </table>
     
