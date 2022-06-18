@@ -1,10 +1,14 @@
 const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const handlebars = require('express-handlebars');
+
+const dotenv = require('dotenv');
+dotenv.config();
+const PORT = process.env.PORT;
+
 const app = express();
-const port = 3000;
 
 const route = require('./routes');
 const db = require('./config/db');
@@ -44,6 +48,6 @@ console.log(__dirname);
 //Route init
 route(app);
 
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
 });
